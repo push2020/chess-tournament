@@ -1,7 +1,5 @@
 # Chess Tournament App
 
-Next.js project for the Senior Frontend Developer Assignment. See **Senior_Frontend_Developer_Assignment_Nextjs.pdf** in the parent directory for:
-
 - **Objective** – Goals of the assignment  
 - **Problem Statement** – What to build  
 - **Technical Requirements** – Tech stack and constraints  
@@ -23,8 +21,7 @@ The dummy JSON dataset is **exposed via a mocked API** using a Next.js route han
 
 - **Route:** `GET /api/tournaments` (see `app/api/tournaments/route.ts`) returns the contents of `data/tournaments.json`.
 - **Client:** The tournament list page fetches this data with `fetch('/api/tournaments')` on mount and handles loading and error states.
-
-**Why this approach:** It mirrors a real app where the UI talks to an API. Using route handlers keeps the same data shape and makes it easy to swap in a real backend later. The client code (fetch, loading/error handling) is what we’d use with a live API, so we avoid branching logic or a second “real API” path.
+**Approach:** It mirrors a real app where the UI talks to an API. Using route handlers keeps the same data shape and makes it easy to swap in a real backend later. The client code (fetch, loading/error handling) is what we’d use with a live API, so we avoid branching logic or a second “real API” path.
 
 ## Setup
 
