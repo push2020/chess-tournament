@@ -30,6 +30,11 @@ export function TournamentCard({
   onJoin,
 }: TournamentCardProps) {
   const canJoin = !isJoined && !isFull;
+  // When user has joined (mocked), show count increased by 1
+  const displayCount = Math.min(
+    tournament.playersJoined + (isJoined ? 1 : 0),
+    tournament.maxPlayers
+  );
 
   return (
     <article className={styles.card}>
@@ -53,7 +58,7 @@ export function TournamentCard({
         <div className={styles.row}>
           <dt>Players</dt>
           <dd>
-            {tournament.playersJoined} / {tournament.maxPlayers}
+            {displayCount} / {tournament.maxPlayers}
           </dd>
         </div>
       </dl>
@@ -61,7 +66,7 @@ export function TournamentCard({
         <div
           className={styles.progressBar}
           style={{
-            width: `${(tournament.playersJoined / tournament.maxPlayers) * 100}%`,
+            width: `${(displayCount / tournament.maxPlayers) * 100}%`,
           }}
         />
       </div>
